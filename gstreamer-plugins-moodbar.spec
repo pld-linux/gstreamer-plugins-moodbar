@@ -5,7 +5,7 @@ Summary:	Moodbar plugin for gstreamer
 Summary(pl):	Wtyczka do gstreamera generuj±ca Moodbar
 Name:		gstreamer-plugins-moodbar
 Version:	0.1.1
-Release:	0.3
+Release:	0.4
 License:	GPL v2
 Group:		Libraries
 Source0:	http://pwsp.net/~qbob/moodbar-%{version}.tar.gz
@@ -26,6 +26,16 @@ O'Keefe for inclusion in the Amarok music player.
 This package contains a GStreamer plugin with elements that are used
 in the moodbar analysis, and an application that actually does the
 analysis.
+
+%description -l pl
+Moodbar to algorytm tworzenia kolorowej reprezentacji zawarto¶ci
+plików audio mówi±cej o nastroju danego utworu (to jest raczej
+dziwaczne okre¶lenie prostej analizy któr± dokonuje). Moodbar zosta³
+wymy¶lony przez Gavina Wooda i Simona O'Keefee'a do zastosowania dla
+odtwarzacza Amarok.
+
+Ten pakiet zawiera wtyczkê dla systemu GStreamer oraz aplikacjê, która
+dokonuje tej analizy.
 
 %package devel
 Summary:	Header files for Moodbar library
