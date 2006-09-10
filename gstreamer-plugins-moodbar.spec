@@ -1,14 +1,19 @@
+%define         gst_major_ver   0.10
+%define         gstlibdir       %{_libdir}/gstreamer-%{gst_major_ver}
+
 Summary:	Moodbar plugin for gstreamer
 Summary(pl):	Wtyczka do gstreamera generuj±ca Moodbar
 Name:		gstreamer-plugins-moodbar
 Version:	0.1.1
-Release:	0.1
+Release:	0.3
 License:	GPL v2
 Group:		Libraries
 Source0:	http://pwsp.net/~qbob/moodbar-%{version}.tar.gz
 # Source0-md5:	82d5114a71f1bb28a0845624914cbc4b
 URL:		http://amarok.kde.org/wiki/Moodbar
-BuildRequires:	gstreamer-devel >= 0.10
+BuildRequires:	gstreamer-devel >= %{gst_major_ver}
+Requires:	gstreamer-plugins-base >= %{gst_major_ver}
+Requires:	gstreamer-plugins-good >= %{gst_major_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,20 +67,33 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
+%post
+/sbin/ldconfig
+cat << EOF
+
+ *******************************************************
+ *                                                     *
+ *  NOTE:                                              *
+ *  You must install suitable gstreamer-* packages     *
+ *  to work with different audio file formats.         *
+ *                                                     *
+ *******************************************************
+
+EOF
+
 %postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/moodbar
-%attr(755,root,root) %{_prefix}/lib/gstreamer-0.10/libmoodbar.so
+%attr(755,root,root) %{gstlibdir}/libmoodbar.so
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_prefix}/lib/gstreamer-0.10/libmoodbar.so
-%{_prefix}/lib/gstreamer-0.10/libmoodbar.la
+%attr(755,root,root) %{gstlibdir}/libmoodbar.so
+%{gstlibdir}/libmoodbar.la
 
 %files static
 %defattr(644,root,root,755)
-%{_prefix}/lib/gstreamer-0.10/libmoodbar.a
+%{gstlibdir}/libmoodbar.a
