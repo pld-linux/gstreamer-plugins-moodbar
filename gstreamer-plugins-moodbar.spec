@@ -12,6 +12,7 @@ Source0:	http://pwsp.net/~qbob/moodbar-%{version}.tar.gz
 # Source0-md5:	82d5114a71f1bb28a0845624914cbc4b
 URL:		http://amarok.kde.org/wiki/Moodbar
 BuildRequires:	gstreamer-devel >= %{gst_major_ver}
+BuildRequires:	rpmbuild(macros) >= 1.194
 Requires:	gstreamer-plugins-base >= %{gst_major_ver}
 Requires:	gstreamer-plugins-good >= %{gst_major_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
