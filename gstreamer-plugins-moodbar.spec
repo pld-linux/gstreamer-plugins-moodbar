@@ -5,7 +5,7 @@ Summary:	Moodbar plugin for gstreamer
 Summary(pl):	Wtyczka do gstreamera generuj±ca Moodbar
 Name:		gstreamer-plugins-moodbar
 Version:	0.1.1
-Release:	0.4
+Release:	0.5
 License:	GPL v2
 Group:		Libraries
 Source0:	http://pwsp.net/~qbob/moodbar-%{version}.tar.gz
@@ -79,8 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-cat << EOF
-
+%banner %{name} -e << EOF
  *******************************************************
  *                                                     *
  *  NOTE:                                              *
