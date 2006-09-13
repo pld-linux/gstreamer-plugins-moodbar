@@ -15,6 +15,8 @@ BuildRequires:	gstreamer-devel >= %{gst_major_ver}
 BuildRequires:	rpmbuild(macros) >= 1.194
 Requires:	gstreamer-plugins-base >= %{gst_major_ver}
 Requires:	gstreamer-plugins-good >= %{gst_major_ver}
+Obsoletes:	gstreamer-plugins-moodbar-devel
+Obsoletes:	gstreamer-plugins-moodbar-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,35 +40,12 @@ odtwarzacza Amarok.
 Ten pakiet zawiera wtyczkê dla systemu GStreamer oraz aplikacjê, która
 dokonuje tej analizy.
 
-%package devel
-Summary:	Header files for Moodbar library
-Summary(pl):	Pliki nag³ówkowe biblioteki Moodbar
-Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-
-%description devel
-Header files for Moodbar library.
-
-%description devel -l pl
-Pliki nag³ówkowe biblioteki Moodbar.
-
-%package static
-Summary:	Static Moodbar library
-Summary(pl):	Statyczna biblioteka Moodbar
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-
-%description static
-Static Moodbar library.
-
-%description static -l pl
-Statyczna biblioteka Moodbar.
-
 %prep
 %setup -q -n moodbar-%{version}
 
 %build
-%configure
+%configure \
+	--disable-static
 %{__make}
 
 %install
@@ -75,11 +54,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{gstlibdir}/libmoodbar.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/ldconfig
 %banner %{name} -e << EOF
  *******************************************************
  *                                                     *
@@ -91,19 +71,8 @@ rm -rf $RPM_BUILD_ROOT
 
 EOF
 
-%postun	-p /sbin/ldconfig
-
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/moodbar
 %attr(755,root,root) %{gstlibdir}/libmoodbar.so
-
-%files devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{gstlibdir}/libmoodbar.so
-%{gstlibdir}/libmoodbar.la
-
-%files static
-%defattr(644,root,root,755)
-%{gstlibdir}/libmoodbar.a
