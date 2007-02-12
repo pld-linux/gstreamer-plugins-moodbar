@@ -2,7 +2,7 @@
 %define         gstlibdir       %{_libdir}/gstreamer-%{gst_major_ver}
 
 Summary:	Moodbar plugin for gstreamer
-Summary(pl):	Wtyczka do gstreamera generuj±ca Moodbar
+Summary(pl.UTF-8):   Wtyczka do gstreamera generujÄ…ca Moodbar
 Name:		gstreamer-plugins-moodbar
 Version:	0.1.1
 Release:	0.5
@@ -30,14 +30,14 @@ This package contains a GStreamer plugin with elements that are used
 in the moodbar analysis, and an application that actually does the
 analysis.
 
-%description -l pl
-Moodbar to algorytm tworzenia kolorowej reprezentacji zawarto¶ci
-plików audio mówi±cej o nastroju danego utworu (to jest raczej
-dziwaczne okre¶lenie prostej analizy któr± dokonuje). Moodbar zosta³
-wymy¶lony przez Gavina Wooda i Simona O'Keefee'a do zastosowania dla
+%description -l pl.UTF-8
+Moodbar to algorytm tworzenia kolorowej reprezentacji zawartoÅ›ci
+plikÃ³w audio mÃ³wiÄ…cej o nastroju danego utworu (to jest raczej
+dziwaczne okreÅ›lenie prostej analizy ktÃ³rÄ… dokonuje). Moodbar zostaÅ‚
+wymyÅ›lony przez Gavina Wooda i Simona O'Keefee'a do zastosowania dla
 odtwarzacza Amarok.
 
-Ten pakiet zawiera wtyczkê dla systemu GStreamer oraz aplikacjê, która
+Ten pakiet zawiera wtyczkÄ™ dla systemu GStreamer oraz aplikacjÄ™, ktÃ³ra
 dokonuje tej analizy.
 
 %prep
