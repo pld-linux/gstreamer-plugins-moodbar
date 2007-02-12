@@ -2,7 +2,7 @@
 %define         gstlibdir       %{_libdir}/gstreamer-%{gst_major_ver}
 
 Summary:	Moodbar plugin for gstreamer
-Summary(pl.UTF-8):   Wtyczka do gstreamera generująca Moodbar
+Summary(pl.UTF-8):	Wtyczka do gstreamera generująca Moodbar
 Name:		gstreamer-plugins-moodbar
 Version:	0.1.1
 Release:	0.5
