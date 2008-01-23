@@ -5,14 +5,16 @@ Summary:	Moodbar plugin for gstreamer
 Summary(pl.UTF-8):	Wtyczka do gstreamera generująca Moodbar
 Name:		gstreamer-plugins-moodbar
 Version:	0.1.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	http://pwsp.net/~qbob/moodbar-%{version}.tar.gz
 # Source0-md5:	28c8eb65e83b30f71b84be4fab949360
 URL:		http://amarok.kde.org/wiki/Moodbar
+BuildRequires:	fftw3-single-devel >= 3.0
 BuildRequires:	gstreamer-devel >= %{gst_major_ver}
 BuildRequires:	rpmbuild(macros) >= 1.194
+Requires:	fftw3-single >= 3.0
 Requires:	gstreamer-plugins-base >= %{gst_major_ver}
 Requires:	gstreamer-plugins-good >= %{gst_major_ver}
 Obsoletes:	gstreamer-plugins-moodbar-devel
